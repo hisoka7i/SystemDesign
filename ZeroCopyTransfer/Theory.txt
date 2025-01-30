@@ -1,0 +1,8 @@
+In tradition system, OS reads the file from the disk to page space(kernel space),
+then application read the file from kernel space to user-space, then the application writes
+to kernel space, and sends data to socket.
+
+In this zero copy transfer this addition user-space operation is skipped and the 
+file from page space is directly sent to socket.
+
+Linux has sendFile() function to implement this
